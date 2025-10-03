@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АвтоПрокат</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#e63946',
+                        'secondary': '#1d3557',
+                        'dark': '#0a0a0a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .car-card:hover .car-image {
+            transform: scale(1.05);
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #e63946 !important;
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-200">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-gray-900/80 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i data-feather="car" class="text-primary w-8 h-8"></i>
+                <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">АвтоПрокат</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-primary transition-colors">Главная</a>
+                <a href="#fleet" class="hover:text-primary transition-colors">Авто</a>
+                <a href="#rental" class="hover:text-primary transition-colors">Аренда</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Контакты</a>
+            </nav>
+            <button class="md:hidden">
+                <i data-feather="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="relative">
+        <div class="swiper heroSwiper h-[80vh]">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent z-10"></div>
+                    <img src="img/auto1.jpg" alt="Luxury Car" class="w-full h-full object-cover">
+                    <div class="absolute bottom-20 left-0 right-0 z-20 container mx-auto px-4">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4">Премиум-аренда для ценителей <span class="text-primary">комфорта</span></h1>
+                        <p class="text-xl max-w-2xl mb-6">Твоя машина мечты — сегодня и сейчас. Роскошь и мощь в каждой детали.</p>
+                        <a href="#fleet" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-colors">Просмотреть автопарк</a>
+                    </div>
+                </div>
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent z-10"></div>
+                    <img src="img/auto2.jpg" alt="Sports Car" class="w-full h-full object-cover">
+                    <div class="absolute bottom-20 left-0 right-0 z-20 container mx-auto px-4">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4">Максимум <span class="text-primary">производительности</span></h1>
+                        <p class="text-xl max-w-2xl mb-6">Испытай захватывающее ускорение и точную управляемость в нашей коллекции авто.</p>
+                        <a href="#rental" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-colors">Забронировать сейчас</a>
+                    </div>
+                </div>
+                <div class="swiper-slide relative">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent z-10"></div>
+                    <img src="img/auto3.jpg" alt="SUV" class="w-full h-full object-cover">
+                    <div class="absolute bottom-20 left-0 right-0 z-20 container mx-auto px-4">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4">Премиальные <span class="text-primary">SUVs</span> для любых поездок</h1>
+                        <p class="text-xl max-w-2xl mb-6">Путешествуй с комфортом и стилем с нашей коллекцией премиальных SUV.</p>
+                        <a href="#contact" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-colors">Позвонить</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section id="fleet" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Наши <span class="text-primary">Лучшие Решения</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-400">Выбирайте из нашей тщательно подобранной коллекции люксовых и спортивных автомобилей.</p>
+            </div>
+            
+            <div class="swiper carSwiper">
+                <div class="swiper-wrapper pb-12">
+                    <!-- Car Card 1 -->
+                    <div class="swiper-slide p-4">
+                        <div class="car-card bg-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
+                            <div class="relative overflow-hidden h-60">
+                                <img src="img/autoc1.jpg" alt="Porsche 911" class="car-image w-full h-full object-cover transition-transform duration-500">
+                                <span class="absolute top-4 right-4 bg-primary text-white text-sm px-3 py-1 rounded-full">Премиум</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold">Porsche 911 Turbo S</h3>
+                                    <span class="text-primary font-bold">₽1099/Сутки</span>
+                                </div>
+                                <div class="flex items-center text-gray-400 text-sm mb-4">
+                                    <div class="flex items-center mr-4">
+                                        <i data-feather="users" class="w-4 h-4 mr-1"></i>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="flex items-center mr-4">
+                                        <i data-feather="compass" class="w-4 h-4 mr-1"></i>
+                                        <span>3.7Л</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i data-feather="zap" class="w-4 h-4 mr-1"></i>
+                                        <span>640ЛС</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-400 mb-6">Испытай вершину инженерного мастерства Porsche: молниеносное ускорение и идеальная управляемость.</p>
+                                <a href="#contact" class="w-full bg-secondary hover:bg-secondary/90 text-white py-2 rounded-lg transition-colors">Арендовать сейчас</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Car Card 2 -->
+                    <div class="swiper-slide p-4">
+                        <div class="car-card bg-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
+                            <div class="relative overflow-hidden h-60">
+                                <img src="img/autoc2.jpg" alt="Range Rover" class="car-image w-full h-full object-cover transition-transform duration-500">
+                                <span class="absolute top-4 right-4 bg-secondary text-white text-sm px-3 py-1 rounded-full">SUV</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold">Range Rover Autobiography</h3>
+                                    <span class="text-primary font-bold">₽1549/Сутки</span>
+                                </div>
+                                <div class="flex items-center text-gray-400 text-sm mb-4">
+                                    <div class="flex items-center mr-4">
+                                        <i data-feather="users" class="w-4 h-4 mr-1"></i>
+                                        <span>5</span>
+                                    </div>
+                                    <div class="flex items-center mr-4">
+                                        <i data-feather="compass" class="w-4 h-4 mr-1"></i>
+                                        <span>4.4Л</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i data-feather="zap" class="w-4 h-4 mr-1"></i>
+                                        <span>523ЛС</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-400 mb-6">Внедорожник премиум-класса с непревзойденным комфортом и универсальными возможностями.</p>
+                                <a href="#contact" class="w-full bg-secondary hover:bg-secondary/90 text-white py-2 rounded-lg transition-colors">Арендовать сейчас</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Car Card 3 -->
+                    <div class="swiper-slide p-4">
+                        <div class="car-card bg-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
+                            <div class="relative overflow-hidden h-60">
+                                <img src="img/autoc3.jpg" alt="Tesla Model S" class="car-image w-full h-full object-cover transition-transform duration-500">
+                                <span class="absolute top-4 right-4 bg-green-500 text-white text-sm px-3 py-1 rounded-full">Электро</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold">Tesla Model S Plaid</h3>
+                                    <span class="text-primary font-bold">₽1379/Сутки</span>
+                                </div>
+                                <div class="flex items-center text-gray-400 text-sm mb-4">
+                                    <div class="flex items-center mr-4">
+                                        <i data-feather="users" class="w-4 h-4 mr-1"></i>
+                                        <span>5</span>
+                                    </div>
+                                    <div class="flex items-center mr-4">
+                                        <i data-feather="battery" class="w-4 h-4 mr-1"></i>
+                                        <span>396mi</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i data-feather="zap" class="w-4 h-4 mr-1"></i>
+                                        <span>1,020ЛС</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-400 mb-6">Самый быстрый серийный автомобиль в мире с передовыми технологиями будущего.</p>
+                                <a href="#contact" class="w-full bg-secondary hover:bg-secondary/90 text-white py-2 rounded-lg transition-colors">Арендовать сейчас</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Car Card 4 -->
+                    <div class="swiper-slide p-4">
+                        <div class="car-card bg-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
+                            <div class="relative overflow-hidden h-60">
+                                <img src="img/autoc4.jpg" alt="Audi R8" class="car-image w-full h-full object-cover transition-transform duration-500">
+                                <span class="absolute top-4 right-4 bg-primary text-white text-sm px-3 py-1 rounded-full">СуперКар</span>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold">Audi R8 V10 Plus</h3>
+                                    <span class="text-primary font-bold">₽1459/Сутки</span>
+                                </div>
+                                <div class="flex items-center text-gray-400 text-sm mb-4">
+                                    <div class="flex items-center mr-4">
+                                        <i data-feather="users" class="w-4 h-4 mr-1"></i>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="flex items-center mr-4">
+                                        <i data-feather="compass" class="w-4 h-4 mr-1"></i>
+                                        <span>5.2Л</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i data-feather="zap" class="w-4 h-4 mr-1"></i> 
+                                        <span>610ЛС</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-400 mb-6">Главный суперкар Audi: мощь V10 и невероятная точность на дороге.</p>
+                                <a href="#contact" class="w-full bg-secondary hover:bg-secondary/90 text-white py-2 rounded-lg transition-colors">Арендовать сейчас</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rental Services -->
+    <section id="rental" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Наши <span class="text-primary">Услуги Аренды</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-400">Гибкие варианты аренды, подобранные под ваши потребности.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
+                        <i data-feather="clock" class="text-primary w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Почасовая аренда</h3>
+                    <p class="text-gray-400 mb-4">Идеально для коротких поездок, деловых встреч или особых событий, когда нужен роскошный автомобиль на несколько часов.</p>
+                    <ul class="text-gray-400 space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-primary mr-2"></i>
+                            <span>Минимум 2 Часа</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-primary mr-2"></i>
+                            <span>До 50 км в комплекте</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-primary mr-2"></i>
+                            <span>Гибкое время подачи и возврата</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-medium hover:underline">Узнать Больше</a>
+                </div>
+                
+                <div class="bg-gray-900 p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
+                        <i data-feather="calendar" class="text-primary w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Посуточная аренда</h3>
+                    <p class="text-gray-400 mb-4">Идеально для деловых поездок, уикендов или если вы просто хотите прокатиться на роскошном автомобиле на один день.</p>
+                    <ul class="text-gray-400 space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-primary mr-2"></i>
+                            <span>24-часовой период</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-primary mr-2"></i>
+                            <span>До 200 км в комплекте</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-primary mr-2"></i>
+                            <span>Безлимитная смена автомобилей</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-medium hover:underline">Узнать Больше</a>
+                </div>
+                
+                <div class="bg-gray-900 p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
+                        <i data-feather="globe" class="text-primary w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Долгосрочная аренда</h3>
+                    <p class="text-gray-400 mb-4">Для длительного использования — роскошный автомобиль на недели или месяцы со всеми преимуществами владения.</p>
+                    <ul class="text-gray-400 space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-primary mr-2"></i>
+                            <span>Недельные и месячные тарифы</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-primary mr-2"></i>
+                            <span>Сервисное обслуживание включено</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-primary mr-2"></i>
+                            <span>Приоритетный выбор автомобилей</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-medium hover:underline">Узнать Больше</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Отзывы <span class="text-primary">Наших Клиентов</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-400">Что говорят наши клиенты о своём опыте с АвтоПрокат.</p>
+            </div>
+            
+            <div class="swiper testimonialSwiper">
+                <div class="swiper-wrapper pb-12">
+                    <div class="swiper-slide">
+                        <div class="bg-gray-800 p-8 rounded-xl">
+                            <div class="flex items-center mb-6">
+                                <img src="img/prof.png" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="font-bold">Иван Иванов</h4>
+                                    <span class="text-gray-400 text-sm">Директор</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-6">"Прокат Porsche 911 на выходные подарил незабываемые впечатления. Всё прошло без проблем, машина в отличном состоянии. Обязательно вернусь к АвтоПрокат!"</p>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="bg-gray-800 p-8 rounded-xl">
+                            <div class="flex items-center mb-6">
+                                <img src="img/prof.png" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="font-bold">Наталья Иванова</h4>
+                                    <span class="text-gray-400 text-sm">Маркетинговый Директор</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-6">"Range Rover, который мы арендовали для семейного отпуска, оказался идеальным. Просторный, роскошный и уверенно справлялся с горными дорогами. АвтоПрокат сделали весь процесс простым и удобным."</p>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="bg-gray-800 p-8 rounded-xl">
+                            <div class="flex items-center mb-6">
+                                <img src="img/prof.png" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="font-bold">Александр Смирнов</h4>
+                                    <span class="text-gray-400 text-sm">Менеджер</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-6">"Tesla Model S Plaid превзошла все ожидания. Мгновенный разгон просто поражает. Сервис доставки от АвтоПрокат был пунктуальным и профессиональным."</p>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="bg-gray-800 p-8 rounded-xl">
+                            <div class="flex items-center mb-6">
+                                <img src="img/prof.png" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="font-bold">Анна Смирнова</h4>
+                                    <span class="text-gray-400 text-sm">Менеджер</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-6">"Мы арендовали несколько Audi R8 для корпоративного мероприятия, и они произвели настоящий фурор. АвтоПрокат идеально справились со всей логистикой, а автомобили приехали в отличном состоянии."</p>
+                            <div class="flex text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6"><span class="text-primary">Свяжитесь</span> с нами</h2>
+                    <p class="text-gray-400 mb-8">Есть вопросы о нашем автопарке или услугах аренды? Свяжитесь с нами через форму или напрямую.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+                                <i data-feather="map-pin" class="text-primary w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Наш Адрес</h4>
+                                <p class="text-gray-400">г.Москва, ул. Новый Арбат, 32</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+                                <i data-feather="mail" class="text-primary w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-gray-400">info@autoprokat.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+                                <i data-feather="phone" class="text-primary w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Телефон</h4>
+                                <p class="text-gray-400">+7 (901) 555-7878</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <h4 class="font-bold mb-4">Часы Работы</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-gray-400">Понедельник - Пятница</p>
+                                <p class="font-medium">8:00  - 20:00 </p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400">Суббота - Воскресенье</p>
+                                <p class="font-medium">9:00  - 18:00 </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 p-8 rounded-xl">
+                    <form>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-2">ФИО</label>
+                                <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="ФИО">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="your@email.com">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject" class="block text-sm font-medium mb-2">Вопрос</label>
+                            <input type="text" id="subject" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Как вам помочь?">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium mb-2">Сообщение</label>
+                            <textarea id="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Сообщение..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-3 rounded-lg font-medium transition-colors">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-feather="car" class="text-primary w-8 h-8"></i>
+                        <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">АвтоПрокат</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Премиальный опыт аренды автомобилей с лучшей подборкой люксовых и спортивных авто.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-feather="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-feather="twitter" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-feather="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-feather="youtube" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Ссылки</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Главная</a></li>
+                        <li><a href="#fleet" class="text-gray-400 hover:text-primary transition-colors">Авто</a></li>
+                        <li><a href="#rental" class="text-gray-400 hover:text-primary transition-colors">Аренда</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary transition-colors">Контакты</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Типы Авто</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Премиум</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Спортивные</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">SUVs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Кабриолеты</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Электрические</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Рассылка</h4>
+                    <p class="text-gray-400 mb-4">Подпишитесь, чтобы получать новости о новых поступлениях и специальных предложениях.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Ваш email" class="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary w-full">
+                        <button type="submit" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-r-lg transition-colors">
+                            <i data-feather="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 AutoProkat. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize all sliders
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            // Hero Slider
+            const heroSwiper = new Swiper('.heroSwiper', {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+            
+            // Car Slider
+            const carSwiper = new Swiper('.carSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                },
+            });
+            
+            // Testimonial Slider
+            const testimonialSwiper = new Swiper('.testimonialSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                },
+            });
+        });
+    </script>
+</body>
+</html>
